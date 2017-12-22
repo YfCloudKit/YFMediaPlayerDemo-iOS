@@ -151,7 +151,7 @@
         _bufferText.placeholder = @"请输入纯数字";
         _bufferText.keyboardType = UIKeyboardTypeNumberPad;
         _bufferText.textColor = [UIColor blackColor];
-        _bufferText.text = @"3";
+        _bufferText.text = @"0";
         [self.view addSubview:_bufferText];
     }
     return _bufferText;
