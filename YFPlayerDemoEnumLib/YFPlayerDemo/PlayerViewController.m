@@ -17,13 +17,8 @@
 
 @end
 
-@implementation PlayerViewController
-
-{
-    
-       ControlView                  *controlView;
-    
-    
+@implementation PlayerViewController{
+       ControlView  *controlView;
 }
 
 - (void)viewDidLoad {
