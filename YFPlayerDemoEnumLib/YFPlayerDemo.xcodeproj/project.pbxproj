@@ -13,7 +13,6 @@
 		1846C1811F74AE3200BD1338 /* libavutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FD8EEB1F70C3EB00539D6B /* libavutil.a */; };
 		1846C1821F74AE3300BD1338 /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FD8EEC1F70C3EB00539D6B /* libswresample.a */; };
 		1846C1831F74AE3300BD1338 /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FD8EED1F70C3EB00539D6B /* libswscale.a */; };
-		18BC6E7B1F98857500995B70 /* YfMediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BC6E7A1F98856D00995B70 /* YfMediaPlayer.framework */; };
 		18FD8E2B1F70C11100539D6B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD8E2A1F70C11100539D6B /* main.m */; };
 		18FD8E341F70C11100539D6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18FD8E321F70C11100539D6B /* Main.storyboard */; };
 		18FD8E361F70C11100539D6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18FD8E351F70C11100539D6B /* Assets.xcassets */; };
@@ -77,6 +76,7 @@
 		18FD8EE31F70C3C000539D6B /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FD8EE21F70C3C000539D6B /* VideoToolbox.framework */; };
 		18FD8EE51F70C3CF00539D6B /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FD8EE41F70C3CF00539D6B /* libc++.tbd */; };
 		18FD8EE71F70C3DE00539D6B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FD8EE61F70C3DE00539D6B /* libz.tbd */; };
+		7B874D6420DB7A5F00C4CA35 /* YfMediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B874D6320DB7A5F00C4CA35 /* YfMediaPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,7 +97,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		18BC6E7A1F98856D00995B70 /* YfMediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YfMediaPlayer.framework; sourceTree = "<group>"; };
 		18FD8E261F70C11100539D6B /* YFPlayerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YFPlayerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18FD8E2A1F70C11100539D6B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		18FD8E331F70C11100539D6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -185,6 +184,7 @@
 		18FD8EEB1F70C3EB00539D6B /* libavutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavutil.a; path = ffmpeg/lib/libavutil.a; sourceTree = "<group>"; };
 		18FD8EEC1F70C3EB00539D6B /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libswresample.a; path = ffmpeg/lib/libswresample.a; sourceTree = "<group>"; };
 		18FD8EED1F70C3EB00539D6B /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libswscale.a; path = ffmpeg/lib/libswscale.a; sourceTree = "<group>"; };
+		7B874D6320DB7A5F00C4CA35 /* YfMediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YfMediaPlayer.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,7 +192,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18BC6E7B1F98857500995B70 /* YfMediaPlayer.framework in Frameworks */,
 				18FD8EE71F70C3DE00539D6B /* libz.tbd in Frameworks */,
 				18FD8EE51F70C3CF00539D6B /* libc++.tbd in Frameworks */,
 				1846C17E1F74AE3200BD1338 /* libavcodec.a in Frameworks */,
@@ -200,6 +199,7 @@
 				1846C1801F74AE3200BD1338 /* libavformat.a in Frameworks */,
 				1846C1811F74AE3200BD1338 /* libavutil.a in Frameworks */,
 				1846C1821F74AE3300BD1338 /* libswresample.a in Frameworks */,
+				7B874D6420DB7A5F00C4CA35 /* YfMediaPlayer.framework in Frameworks */,
 				1846C1831F74AE3300BD1338 /* libswscale.a in Frameworks */,
 				18FD8EE31F70C3C000539D6B /* VideoToolbox.framework in Frameworks */,
 				18FD8EE11F70C3B900539D6B /* libbz2.tbd in Frameworks */,
@@ -227,8 +227,8 @@
 		18FD8E1D1F70C11100539D6B = {
 			isa = PBXGroup;
 			children = (
-				18BC6E7A1F98856D00995B70 /* YfMediaPlayer.framework */,
 				18FD8ECB1F70C2B500539D6B /* libSdkAuthFrameWork.a */,
+				7B874D6320DB7A5F00C4CA35 /* YfMediaPlayer.framework */,
 				18FD8ECC1F70C2B500539D6B /* play_test.mp4 */,
 				18FD8E281F70C11100539D6B /* YFPlayerDemo */,
 				18FD8E421F70C11100539D6B /* YFPlayerDemoTests */,

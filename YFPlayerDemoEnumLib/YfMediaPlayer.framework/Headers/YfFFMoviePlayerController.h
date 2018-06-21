@@ -71,8 +71,6 @@ typedef enum YfLogLevel {
 
 @class YfFFMoviePlayerController;
 
-
-
 @protocol YfFFMoviePlayerControllerDelegate <NSObject>
 
 //回调视频数据
@@ -82,12 +80,10 @@ typedef enum YfLogLevel {
 - (void)senderOutAudioData:(NSData*)audioData size:(size_t)audioDataSize player:(YfFFMoviePlayerController *)player;
 
 /**
- * 假如哪有开启自动播放 需要等此回调出来之后 调用play
+ * 假如没有开启自动播放 需要等此回调出来之后 调用play
  * 可以开始播放
  */
 - (void)playerStatusCallBackLoadingCanReadyToPlay:(YfFFMoviePlayerController *)player;
-
-
 
 /**
  * 播放器资源加载中；
@@ -95,7 +91,6 @@ typedef enum YfLogLevel {
  */
 - (void)playerStatusCallBackLoading:(YfFFMoviePlayerController *)player;
 - (void)playerStatusCallBackLoadingSuccess:(YfFFMoviePlayerController *)player;
-
 
 /**
  * 播放缓冲开始；
@@ -112,9 +107,29 @@ typedef enum YfLogLevel {
 
 - (void)playerStatusCallBackPlayerPlayErrorType:(YfPLAYER_MEDIA_ERROR)errorType httpErrorCode:(int)httpErrorCode player:(YfFFMoviePlayerController *)player;
 
+/*
+ * 播放暂停
+ * 播放继续
+ */
+- (void)playerStatusCallBackPlayerPause:(YfFFMoviePlayerController *)player;
+- (void)playerStatusCallBackPlayerPlay:(YfFFMoviePlayerController *)player;
+
+/*
+ * 向前seek
+ * 向后seek
+ * seek完成
+ */
+- (void)playerStatusCallBackPlayerForwardSeek:(YfFFMoviePlayerController *)player;
+- (void)playerStatusCallBackPlayerBackwardSeek:(YfFFMoviePlayerController *)player;
+- (void)playerStatusCallBackPlayerSeekComplete:(YfFFMoviePlayerController *)player;
+
+/*
+ *audioSession中断
+ */
+- (void)playerStatusCallBackPlayerInterrupt:(YfFFMoviePlayerController *)player;
+
+
 @end
-
-
 
 @interface YfFFMoviePlayerController : NSObject <YfMediaPlayback>
 
@@ -126,7 +141,6 @@ typedef enum YfLogLevel {
 */
 - (id)initWithContentURL:(NSURL *)aUrl
              withOptions:(YfFFOptions *)options useDns:(BOOL)availableDNS useSoftDecode:(BOOL)availableDecode DNSIpCallBack:(DNSIpCallBack)DNSIpCallBack appID:(const char *)appid refer:(const char *)refer bufferTime:(float)bufferTime display:(BOOL)display isOpenSoundTouch:(BOOL)soundTouch;
-
 
 
 - (void)prepareToPlay;

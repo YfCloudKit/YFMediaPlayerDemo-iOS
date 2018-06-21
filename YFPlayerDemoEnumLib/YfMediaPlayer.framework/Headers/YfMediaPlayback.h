@@ -114,12 +114,12 @@ typedef void(^DNSIpCallBack)(NSString *ip);
 - (void)clean;
 - (void)play:(NSURL *)url useDns:(BOOL)availableDNS useSoftDecode:(BOOL)availableDecode DNSIpCallBack:(DNSIpCallBack)DNSIpCallBack appID:(const char *)appid refer:(const char *)refer bufferTime:(float)bufferTime;
 
-
+//特效软解下有效
 //进度条时间 重复动作
-- (void)repeat_video:(double)startSec;
+- (void)repeat_video:(double)startSec AndDuration:(double)duration repeatCount:(int)num;
 
 //进度条时间 慢动作
-- (void)slow_video:(double)startSec;
+- (void)slow_video:(double)startSec AndDuration:(double)duration repeatCount:(int)num;
 
 
 
@@ -146,7 +146,19 @@ typedef void(^DNSIpCallBack)(NSString *ip);
 @property (nonatomic) float playbackRate;
 @property (nonatomic) float playbackVolume;
 
+//截图
 - (UIImage *)thumbnailImageAtCurrentTime;
+
+//Gif
+/*
+ *delaytime 每张图片之间的间隔
+ *Gifsize   gif图片大小尺寸
+ */
+- (void)createGifdelayTime:(float)delaytime Gifsize:(CGSize)Gifsize;
+/*
+ * filename:生成文件名  如填的fileName则返回的为documents/gif/fileName.gif
+ */
+- (NSString *)makeGif:(NSString *)fileName;
 
 
 //设置播放全景模式
@@ -156,6 +168,7 @@ typedef void(^DNSIpCallBack)(NSString *ip);
 
 - (void)displayPoint:(UITouch *)point;
 
+//全景播放、3D播放 设置比例 ZoomScale为缩放比例，如果 >=1, 则放大，如果 <1，缩小
 - (void)setPlayerVideoZoom:(float)ZoomScale;
 
 - (void)startDeviceMotion;
