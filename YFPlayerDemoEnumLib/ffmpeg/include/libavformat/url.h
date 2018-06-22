@@ -95,6 +95,7 @@ typedef struct URLProtocol {
     int (*url_close_dir)(URLContext *h);
     int (*url_delete)(URLContext *h);
     int (*url_move)(URLContext *h_src, URLContext *h_dst);
+    int (*url_read_drop_video)( URLContext *h, int flags);
     const char *default_whitelist;
 } URLProtocol;
 

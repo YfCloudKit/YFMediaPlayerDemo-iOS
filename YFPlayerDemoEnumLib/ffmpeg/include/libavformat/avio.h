@@ -34,15 +34,7 @@
 
 #include "libavformat/version.h"
 
-/**
- * Seeking works like for a local file.
- */
-#define AVIO_SEEKABLE_NORMAL (1 << 0)
-
-/**
- * Seeking by timestamp with avio_seek_time() is possible.
- */
-#define AVIO_SEEKABLE_TIME   (1 << 1)
+#define AVIO_SEEKABLE_NORMAL 0x0001 /**< Seeking works like for a local file */
 
 /**
  * Callback for checking whether to abort blocking functions.
@@ -327,6 +319,9 @@ typedef struct AVIOContext {
      * This is current internal only, do not use from outside.
      */
     int (*short_seek_get)(void *opaque);
+    // add by zhaokui
+    int (*read_drop_video)(void *opaque, int flags);
+    // end
 } AVIOContext;
 
 /**
@@ -442,7 +437,8 @@ AVIOContext *avio_alloc_context(
                   void *opaque,
                   int (*read_packet)(void *opaque, uint8_t *buf, int buf_size),
                   int (*write_packet)(void *opaque, uint8_t *buf, int buf_size),
-                  int64_t (*seek)(void *opaque, int64_t offset, int whence));
+                  int64_t (*seek)(void *opaque, int64_t offset, int whence),
+                                int (*read_drop_video)(void *opaque, int flags));
 
 void avio_w8(AVIOContext *s, int b);
 void avio_write(AVIOContext *s, const unsigned char *buf, int size);
@@ -783,6 +779,9 @@ int     avio_pause(AVIOContext *h, int pause);
  */
 int64_t avio_seek_time(AVIOContext *h, int stream_index,
                        int64_t timestamp, int flags);
+// add by zhaokui
+int avio_drop_video(AVIOContext *s, int flags);
+// end 
 
 /* Avoid a warning. The header can not be included because it breaks c++. */
 struct AVBPrint;

@@ -791,6 +791,9 @@ typedef struct AVInputFormat {
      * @see avdevice_capabilities_free() for more details.
      */
     int (*free_device_capabilities)(struct AVFormatContext *s, struct AVDeviceCapabilitiesQuery *caps);
+    // add by zhaokui
+    int (*read_drop_video)(struct AVFormatContext *,int flags);
+    // end
 } AVInputFormat;
 /**
  * @}
@@ -2359,6 +2362,10 @@ int av_seek_frame(AVFormatContext *s, int stream_index, int64_t timestamp,
  *       ABI compatibility yet!
  */
 int avformat_seek_file(AVFormatContext *s, int stream_index, int64_t min_ts, int64_t ts, int64_t max_ts, int flags);
+
+// add by zhaokui
+int avformat_drop_video(AVFormatContext *s, int flags);
+// end
 
 /**
  * Discard all internally buffered data. This can be useful when dealing with
